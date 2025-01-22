@@ -1,0 +1,17 @@
+@use "@progress/kendo-theme-default/scss/index.scss" as *;
+
+// Include the components as per need
+@include kendo-button--styles();
+@include kendo-date-time-picker--styles();
+@include kendo-date-picker--styles();
+@include kendo-date-input--styles();
+@include kendo-date-range-picker--styles();
+
+@include kendo-dialog--styles();
+@include kendo-window--styles();
+
+@include kendo-combobox--styles();
+@include kendo-dropdown-list--styles();
+@include kendo-dropdown-tree--styles(); // where are we using?
+@include kendo-multiselect--styles();/* You can add global styles to this file, and also import other style files */
+@include kendo-scheduler--styles();
