@@ -1,10 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {
-    DataBindingDirective,
-    MonthViewComponent,
-    SchedulerComponent,
-    SchedulerEvent
-} from '@progress/kendo-angular-scheduler';
+import {DataBindingDirective, MonthViewComponent, SchedulerComponent, SchedulerEvent} from '@progress/kendo-angular-scheduler';
 import {TaskService} from '../task.service';
 
 @Component({
@@ -12,7 +7,7 @@ import {TaskService} from '../task.service';
     imports: [
         SchedulerComponent,
         MonthViewComponent,
-        DataBindingDirective
+        DataBindingDirective,
     ],
     templateUrl: './list.component.html',
     standalone: true,
@@ -106,6 +101,12 @@ export class ListComponent implements OnInit {
                     this.events = this.orgEvents.filter(x => refreshes.includes(x.dataItem));
                 }
             });
+    }
+
+    public getNextId(): number {
+        const len = this.events.length;
+
+        return len === 0 ? 1 : this.events[this.events.length - 1].id + 1;
     }
 
 }
