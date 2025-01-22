@@ -1,13 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {
-    CreateFormGroupArgs,
     DataBindingDirective,
-    EditMode,
     MonthViewComponent, ReactiveEditingDirective,
     SchedulerComponent,
     SchedulerEvent
 } from '@progress/kendo-angular-scheduler';
-import {FormBuilder, FormGroup, ValidatorFn, Validators} from '@angular/forms';
 import {TaskService} from '../task.service';
 
 @Component({
@@ -92,37 +89,8 @@ export class ListComponent implements OnInit {
     ];
 
     public selectedDate: Date = new Date('2018-10-22T00:00:00');
-    public formGroup!: FormGroup;
 
-    public createFormGroup(args: CreateFormGroupArgs | any): FormGroup {
-        const dataItem = args.dataItem;
-        const isOccurrence = args.mode === (EditMode.Occurrence as any);
-        const exceptions = isOccurrence ? [] : dataItem.recurrenceExceptions;
-
-        this.formGroup = this.formBuilder.group(
-            {
-                id: args.isNew ? this.getNextId() : dataItem.id,
-                start: [dataItem.start, Validators.required],
-                end: [dataItem.end, Validators.required],
-                startTimezone: [dataItem.startTimezone],
-                endTimezone: [dataItem.endTimezone],
-                isAllDay: dataItem.isAllDay,
-                title: dataItem.title,
-                description: dataItem.description,
-                recurrenceRule: dataItem.recurrenceRule,
-                recurrenceId: dataItem.recurrenceId,
-                recurrenceExceptions: [exceptions],
-            },
-            {
-                validator: this.startEndValidator,
-            }
-        );
-
-        return this.formGroup;
-    }
-
-    constructor(private formBuilder: FormBuilder, private _activityLogService: TaskService) {
-        this.createFormGroup = this.createFormGroup.bind(this);
+    constructor(private _activityLogService: TaskService) {
         this.events = this.orgEvents;
     }
 
@@ -134,31 +102,11 @@ export class ListComponent implements OnInit {
                 this.refreshes12345 = refreshes;
 
                 if (refreshes.length === 0) {
-                    console.log('filter 0');
-                    this.events = this.orgEvents.filter(x => refreshes.includes(x.dataItem));
-                    //this.events = this.orgEvents;
+                    this.events = this.orgEvents;
                 } else {
                     this.events = this.orgEvents.filter(x => refreshes.includes(x.dataItem));
                 }
             });
     }
-
-    public getNextId(): number {
-        const len = this.events.length;
-
-        return len === 0 ? 1 : this.events[this.events.length - 1].id + 1;
-    }
-
-    // @ts-ignore
-    public startEndValidator: ValidatorFn = (fg: FormGroup) => {
-        const start = fg.get('start')!.value;
-        const end = fg.get('end')!.value;
-
-        if (start !== null && end !== null && start.getTime() < end.getTime()) {
-            return null;
-        } else {
-            return {range: 'End date must be greater than Start date'};
-        }
-    };
 
 }
