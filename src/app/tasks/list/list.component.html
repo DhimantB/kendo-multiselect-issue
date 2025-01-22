@@ -1,0 +1,12 @@
+
+<h2 class="align-center" style="text-align: center">
+    {{ refreshes12345 }}
+</h2>
+
+<kendo-scheduler
+        [kendoSchedulerBinding]="events"
+        [kendoSchedulerReactiveEditing]="createFormGroup"
+        [selectedDate]="selectedDate">
+    <kendo-scheduler-month-view> </kendo-scheduler-month-view>
+</kendo-scheduler>
+
