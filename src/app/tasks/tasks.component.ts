@@ -33,14 +33,4 @@ export class TasksComponent {
     refreshLogs() {
         this._taskService._notifyOnRefreshLogs.next(this.selectedFilters);
     }
-
-    onClose($event: any) {
-        // console.log('on close');
-        // $event.preventDefault();
-    }
-
-    onInputBlur($event: any, multiSelect: MultiSelectComponent) {
-        // console.log('onInputBlur');
-        // multiSelect.toggle(false);
-    }
 }
