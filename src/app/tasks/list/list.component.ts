@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {
     DataBindingDirective,
-    MonthViewComponent, ReactiveEditingDirective,
+    MonthViewComponent,
     SchedulerComponent,
     SchedulerEvent
 } from '@progress/kendo-angular-scheduler';
@@ -12,8 +12,7 @@ import {TaskService} from '../task.service';
     imports: [
         SchedulerComponent,
         MonthViewComponent,
-        DataBindingDirective,
-        ReactiveEditingDirective
+        DataBindingDirective
     ],
     templateUrl: './list.component.html',
     standalone: true,
