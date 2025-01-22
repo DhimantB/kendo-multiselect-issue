@@ -19,6 +19,7 @@
     "@angular/platform-browser-dynamic": "^19.0.0",
     "@angular/router": "^19.0.0",
     "@progress/kendo-angular-buttons": "17.2.0",
+    "@progress/kendo-angular-grid": "17.2.0",
     "@progress/kendo-angular-common": "17.2.0",
     "@progress/kendo-angular-dropdowns": "17.2.0",
     "@progress/kendo-angular-inputs": "17.2.0",
