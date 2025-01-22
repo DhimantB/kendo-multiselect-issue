@@ -1,18 +1,34 @@
-@use "@progress/kendo-theme-default/scss/index.scss" as *;
+@import '@progress/kendo-theme-default/scss/button/index';
 
-// Include the components as per need
-@include kendo-button--styles();
-@include kendo-date-time-picker--styles();
-@include kendo-date-picker--styles();
-@include kendo-date-input--styles();
-@include kendo-date-range-picker--styles();
+// kendo-angular-dropdowns
+//@import '@progress/kendo-theme-default/scss/autocomplete/_index.scss';
+@import '@progress/kendo-theme-default/scss/combobox/index';
+@import '@progress/kendo-theme-default/scss/dropdownlist/index';
+@import '@progress/kendo-theme-default/scss/dropdowntree/index';
+@import '@progress/kendo-theme-default/scss/multiselect/index';
 
-@include kendo-dialog--styles();
-@include kendo-window--styles();
+// kendo-angular-grid
+@import '@progress/kendo-theme-default/scss/grid/index';
 
-@include kendo-combobox--styles();
-@include kendo-dropdown-list--styles();
-@include kendo-dropdown-tree--styles(); // where are we using?
-@include kendo-multiselect--styles();/* You can add global styles to this file, and also import other style files */
-@include kendo-scheduler--styles();
-@include kendo-grid--styles();
+// kendo-angular-editor
+//@import "@progress/kendo-theme-default/scss/editor/_index.scss";
+
+// kendo-angular-icons
+@import '@progress/kendo-theme-default/scss/icons/index';
+
+@import '@progress/kendo-theme-default/scss/loader/index';
+@import '@progress/kendo-theme-default/scss/input/index';
+@import '@progress/kendo-theme-default/scss/maskedtextbox/index';
+@import '@progress/kendo-theme-default/scss/numerictextbox/index';
+@import '@progress/kendo-theme-default/scss/textarea/index';
+@import '@progress/kendo-theme-default/scss/textbox/index';
+@import '@progress/kendo-theme-default/scss/validator/index';
+
+
+// kendo-angular-popover
+@import "@progress/kendo-theme-default/scss/popover/_index.scss";
+
+// kendo-angular-popup
+@import '@progress/kendo-theme-default/scss/popup/index';
+
+@import "@progress/kendo-theme-default/scss/scheduler/_index.scss";
