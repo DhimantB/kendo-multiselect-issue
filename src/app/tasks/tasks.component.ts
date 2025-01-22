@@ -3,14 +3,13 @@ import {MultiSelectComponent} from '@progress/kendo-angular-dropdowns';
 import {FormsModule} from '@angular/forms';
 import {TaskService} from './task.service';
 import {ListComponent} from './list/list.component';
-import {PreventableEvent} from '@progress/kendo-angular-common';
 
 @Component({
     selector: 'app-tasks',
     imports: [
         MultiSelectComponent,
         FormsModule,
-        ListComponent,
+        ListComponent
     ],
     templateUrl: './tasks.component.html',
     standalone: true,
@@ -31,25 +30,17 @@ export class TasksComponent {
     constructor(private _taskService: TaskService) {
     }
 
-    ngOnInit(): void {
-    }
-
-    refresh() {
-        this._taskService._notifyOnRefreshLogs.next(this.selectedFilters);
-    }
-
-
     refreshLogs() {
         this._taskService._notifyOnRefreshLogs.next(this.selectedFilters);
     }
 
     onClose($event: any) {
-        console.log('on close');
-        $event.preventDefault();
+        // console.log('on close');
+        // $event.preventDefault();
     }
 
     onInputBlur($event: any, multiSelect: MultiSelectComponent) {
-        console.log('onInputBlur');
-        multiSelect.toggle(false);
+        // console.log('onInputBlur');
+        // multiSelect.toggle(false);
     }
 }
